@@ -2,7 +2,7 @@ import { Select, VStack, CheckIcon } from "native-base"
 import { useState } from "react"
 
 const Movies = props => {
-    const { searchType, getMovies, onSelectChange } = props
+    const { getMovies, onSelectChange } = props
     const [movieType, setMovieType] = useState("")
 
     return (

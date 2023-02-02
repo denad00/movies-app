@@ -32,6 +32,7 @@ const MoviesContainer = () => {
     return(
     <View>
         <Movies onSelectChange={handleSelectChange} getMovies={fetchMovies} />
+
         <Text>
             Movies!
         </Text>

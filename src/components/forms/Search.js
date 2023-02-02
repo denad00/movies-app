@@ -9,7 +9,7 @@ const Search = props => {
     const [searchType, setSearchType] = useState("")
 
     const onSubmit = () => {
-        console.log('form submitted')
+        console.log('form submitted', searchData, searchType )
     }
 
     return (

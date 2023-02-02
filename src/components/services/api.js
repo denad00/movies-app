@@ -9,8 +9,8 @@ import { BASE_URL, API_KEY } from '../config/api_config'
 export const getInformation = async (searchType, category) => {
     const res = await fetch(`${BASE_URL}/${searchType}/${category}?api_key=${API_KEY}`)
 
-    const data = res.json()
+    const data = await res.json()
 
-    return(data)
-    console.log(data)
+    return(data.results)
+    console.log(data.results)
 }
