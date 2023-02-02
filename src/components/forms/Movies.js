@@ -2,7 +2,7 @@ import { Select, VStack, CheckIcon } from "native-base"
 import { useState } from "react"
 
 const Movies = props => {
-    const {fetchMovies, onSelectChange} = props
+    const { searchType, getMovies, onSelectChange } = props
     const [movieType, setMovieType] = useState("")
 
     return (
@@ -14,7 +14,7 @@ const Movies = props => {
                 onValueChange={movieValue => {
                     onSelectChange(movieValue)
                     setMovieType(movieValue)
-                    fetchMovies()
+                    getMovies('movie', movieValue)
                 }}
                 _selectedItem={{
                     bg: "#009999",
