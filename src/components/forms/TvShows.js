@@ -20,6 +20,7 @@ const TvShows = () => {
                 <Select.Item label="popular" value="popular"/>
                 <Select.Item label="airing_today" value="airing_today"/>
                 <Select.Item label="on_the_air" value="on_the_air"/>
+                <Select.Item label="top_rated" value="top_rated"/>
             </Select>
         </VStack>
     )

@@ -1,7 +1,8 @@
 import { Select, VStack, CheckIcon } from "native-base"
 import { useState } from "react"
 
-const Movies = () => {
+const Movies = props => {
+    const {fetchMovies, onSelectChange} = props
     const [movieType, setMovieType] = useState("")
 
     return (
@@ -10,12 +11,15 @@ const Movies = () => {
                 selectedValue={movieType} 
                 minWidth={200} 
                 accessibilityLabel="Select Type of Filter for Movies"
-                onValueChange={movieValue => setMovieType(movieValue)}
+                onValueChange={movieValue => {
+                    onSelectChange(movieValue)
+                    setMovieType(movieValue)
+                    fetchMovies()
+                }}
                 _selectedItem={{
                     bg: "#009999",
                     endIcon: <CheckIcon size={4} />
                 }}
-                mt={1}
             >
                 <Select.Item label="popular" value="popular"/>
                 <Select.Item label="now_playing" value="now_playing"/>
