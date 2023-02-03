@@ -3,17 +3,17 @@ import { VStack, FormControl, HStack, Icon, Input, Select, CheckIcon, Button } f
 import { Ionicons } from '@expo/vector-icons'
 
 const Search = props => {
-    const { onInputChange } = props
+    const { getSearch, onInputChange, onSelectChange } = props
     const [searchData, setSearchData] = useState({})
-    const [errors, setErrors] = useState({})
     const [searchType, setSearchType] = useState("")
 
     const onSubmit = () => {
-        console.log('form submitted', searchData, searchType )
+        console.log('form submitted', searchType,searchData )
+        getSearch(searchType, searchData)
     }
 
     return (
-        <VStack space={2} width='100%' py={5} px={4}>
+        <VStack space={2} width='100%' py={5} px={8}>
             <FormControl isRequired>
                 <FormControl.Label fontSize='sm'>Search Movie/TV Show Name</FormControl.Label>
                 <Input
@@ -27,7 +27,7 @@ const Search = props => {
                     }
                     onChangeText={value => {
                         onInputChange(value)
-                        setSearchData({...searchData, name: value})
+                        setSearchData(value)
                     }}
                 />
                 <FormControl.Label fontSize='sm'>Choose Search Type</FormControl.Label>
@@ -41,7 +41,7 @@ const Search = props => {
                         mr={5}
                         accessibilityLabel="Select Search Type"
                         onValueChange={searchValue => {
-                            onInputChange(searchValue)
+                            onSelectChange(searchValue)
                             setSearchType(searchValue)
                             
                         }}

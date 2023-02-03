@@ -22,8 +22,8 @@ export const getTvShows = async ( category) => {
 
 }
 
-export const getSearch = async ( category) => {
-    const res = await fetch(`${BASE_URL}/search/${category}?api_key=${API_KEY}`)
+export const getSearch = async (category, search) => {
+    const res = await fetch(`${BASE_URL}/search/${category}?api_key=${API_KEY}&query=${search}`)
 
     const data = await res.json()
 
