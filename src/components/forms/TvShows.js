@@ -11,6 +11,7 @@ const TvShows = props => {
                 selectedValue={tvShowType} 
                 minWidth={200} 
                 accessibilityLabel="Select Type of Filter for Tv Show"
+                placeholder="select a category"
                 onValueChange={tvShowValue => {
                     onSelectChange(tvShowValue)
                     setTvShowType(tvShowValue)

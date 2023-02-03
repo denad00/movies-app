@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import IndexScreen from '../screens/IndexScreen'
+import ViewDetailsScreen from "../screens/ViewDetailsScreen";
 import Tabs from "../tabs/Tabs";
 
 const Stack = createNativeStackNavigator ()
@@ -21,6 +21,13 @@ const AppStack = () => (
                     }
                     }}
 
+            />
+            <Stack.Screen
+                name='View Details'
+                component={ViewDetailsScreen}
+                options={({ route }) => ({
+                    title: route.params.title
+                })}
             />
         </Stack.Navigator>
     </NavigationContainer>

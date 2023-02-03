@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { VStack, FormControl, HStack, Icon, Input, Select, CheckIcon, Button } from 'native-base'
+import { VStack, FormControl, HStack, Icon, Input, Select, CheckIcon, Button, Container } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 
 const Search = props => {
@@ -13,7 +13,7 @@ const Search = props => {
     }
 
     return (
-        <VStack space={2} width='100%' py={5} px={8}>
+        <VStack space={2} width='100%' py={2} px={8}>
             <FormControl isRequired>
                 <FormControl.Label fontSize='sm'>Search Movie/TV Show Name</FormControl.Label>
                 <Input
@@ -40,6 +40,7 @@ const Search = props => {
                         minWidth={200} 
                         mr={5}
                         accessibilityLabel="Select Search Type"
+                        placeholder="select a category"
                         onValueChange={searchValue => {
                             onSelectChange(searchValue)
                             setSearchType(searchValue)

@@ -11,6 +11,7 @@ const Movies = props => {
                 selectedValue={movieType} 
                 minWidth={200} 
                 accessibilityLabel="Select Type of Filter for Movies"
+                placeholder="select a category"
                 onValueChange={movieValue => {
                     onSelectChange(movieValue)
                     setMovieType(movieValue)

@@ -1,7 +1,7 @@
 import { Box, VStack, Heading, HStack, Image, Text, Button } from "native-base"
 
 const MovieCard = props => {
-    const {image, title, popularity, releaseDate } = props
+    const {image, title, popularity, releaseDate, overview, navigation } = props
     return(
         <Box>
             <HStack >
@@ -12,7 +12,15 @@ const MovieCard = props => {
                     <Heading size='xs'>{title}</Heading>
                     <Text>Popularity: {popularity}</Text>
                     <Text>Release Date: {releaseDate}</Text>
-                    <Button>View Details</Button>
+                    <Button onPress={() => {
+                        navigation.navigate('View Details',{
+                            title,
+                            popularity,
+                            overview,
+                            image,
+                            releaseDate
+                        } )
+                    }}>View Details</Button>
                 </VStack>
             </HStack>
         </Box>

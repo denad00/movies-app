@@ -5,10 +5,10 @@ import SearchContainer from "../containers/SearchContainer";
 
 const Tab = createMaterialTopTabNavigator();
 
-const Tabs = () => {
+const Tabs = ({ navigation }) => {
     return(
         <Tab.Navigator>
-            <Tab.Screen name="Movies" component={MoviesContainer}/>
+            <Tab.Screen name="Movies" component={MoviesContainer} navigation={navigation}/>
             <Tab.Screen name="Search Results" component={SearchContainer}/>
             <Tab.Screen name="TV" component={TvShowsContainer}/>
         </Tab.Navigator>

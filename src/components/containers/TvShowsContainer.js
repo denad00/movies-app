@@ -3,6 +3,7 @@ import TvShows from "../forms/TvShows"
 import { useState } from 'react'
 import { getTvShows } from '../services/api'
 import TvShowsList from '../lists/TvShowsList'
+import Loading from '../layout/Loading'
 
 const TvShowsContainer = () => {
     const [category, setCategory] = useState(null)
@@ -32,12 +33,7 @@ const TvShowsContainer = () => {
     return(
     <View>
         <TvShows onSelectChange={handleSelectChange} getTvShows={fetchShows}/>
-        <TvShowsList tvShowResults={tvShowResults} />
-        <Center>
-            <Heading size='md'>
-                Please select a category
-            </Heading>
-        </Center>
+        {isLoading ? <Loading /> :         <TvShowsList tvShowResults={tvShowResults} />}
     </View>
     )
 }

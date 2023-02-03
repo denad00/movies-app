@@ -3,8 +3,9 @@ import Movies from "../forms/Movies"
 import { useEffect, useState } from 'react'
 import { getMovies } from '../services/api'
 import MoviesList from "../lists/MoviesList"
+import Loading from "../layout/Loading"
 
-const MoviesContainer = () => {
+const MoviesContainer = ({ navigation }) => {
     const [category, setCategory] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [movieResults, setMovieResults] = useState([])
@@ -44,12 +45,7 @@ const MoviesContainer = () => {
     return(
     <View>
         <Movies onSelectChange={handleSelectChange} getMovies={fetchMovies} />
-        <MoviesList movieResults={movieResults}/>
-        <Center>
-            <Heading size='md'>
-                Please select a category
-            </Heading>
-        </Center>
+        {isLoading ? <Loading /> : <MoviesList movieResults={movieResults} navigation={navigation}/>}
     </View>
     )
 }

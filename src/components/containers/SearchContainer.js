@@ -3,6 +3,7 @@ import { useState } from "react"
 import Search from '../forms/Search'
 import { getSearch } from "../services/api"
 import SearchList from '../lists/SearchList'
+import Loading from "../layout/Loading"
 
 const SearchContainer = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -38,9 +39,9 @@ const SearchContainer = () => {
     return(
         <Container>
             <Search onInputChange={handleInputChange} onSelectChange={handleSelectChange} getSearch={fetchSearch} />
-            <SearchList searchResults={searchResults}/>
-            <Center px={4}>
-                <Heading>Please input Search Fields</Heading>
+            {isLoading ? <Loading /> :     <SearchList searchResults={searchResults}/>}
+            <Center>
+                <Heading px={10}>Please input Search Fields</Heading>
             </Center>
         </Container>
     )
