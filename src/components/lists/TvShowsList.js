@@ -10,7 +10,7 @@ const TvShowsList = ({tvShowResults }) => {
             renderItem={({ item }) => (
                 <TvShowCard 
                     image={imageURL+item.poster_path}
-                    title={item.title}
+                    title={item.name}
                     popularity={item.popularity}
                     releaseDate={item.release_date}
 

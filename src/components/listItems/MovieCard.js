@@ -8,7 +8,7 @@ const MovieCard = props => {
                 <Box>
                     <Image source={{ uri: image}} alt={title} size="xl"/>
                 </Box>
-                <VStack>
+                <VStack >
                     <Heading size='xs'>{title}</Heading>
                     <Text>Popularity: {popularity}</Text>
                     <Text>Release Date: {releaseDate}</Text>
