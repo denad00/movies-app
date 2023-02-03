@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { VStack, FormControl, HStack, Icon, Input, Select, CheckIcon, Button, Container } from 'native-base'
+import { VStack, FormControl, HStack, Icon, Input, Select, CheckIcon, Button } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 
 const Search = props => {
@@ -21,7 +21,7 @@ const Search = props => {
                     variant='filled'
                     bg='gray.200'
                     pc={3}
-                    width='125%'
+                    width='100%'
                     InputLeftElement={
                         <Icon size={5} ml={2} color='gray.400' as={<Ionicons name='ios-search'/>}/>
                     }
@@ -37,7 +37,7 @@ const Search = props => {
                 >
                     <Select
                         selectedValue={searchType} 
-                        minWidth={200} 
+                        minWidth={210} 
                         mr={5}
                         accessibilityLabel="Select Search Type"
                         placeholder="select a category"

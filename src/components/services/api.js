@@ -32,3 +32,14 @@ export const getSearch = async (category, search) => {
     return(data.results)
 
 }
+
+export const getMovie = async (id) => {
+    const res = await fetch(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`)
+
+    const data = await res.json()
+
+    console.log(data.results)
+
+    return(data.results)
+
+}

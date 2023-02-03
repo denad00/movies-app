@@ -7,7 +7,11 @@ const Tab = createMaterialTopTabNavigator();
 
 const Tabs = ({ navigation }) => {
     return(
-        <Tab.Navigator>
+        <Tab.Navigator
+            screenOptions={{
+                tabBarLabelStyle: { fontSize: 11}
+            }}
+        >
             <Tab.Screen name="Movies" component={MoviesContainer} navigation={navigation}/>
             <Tab.Screen name="Search Results" component={SearchContainer} navigation={navigation}/>
             <Tab.Screen name="TV" component={TvShowsContainer} navigation={navigation}/>

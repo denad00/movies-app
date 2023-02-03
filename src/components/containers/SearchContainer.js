@@ -41,11 +41,11 @@ const SearchContainer = ({ navigation }) => {
     console.log('category', category)
 
     return(
-        <Container>
+        <Container maxWidth='100%'>
             <Search onInputChange={handleInputChange} onSelectChange={handleSelectChange} getSearch={fetchSearch} />
-            {isLoading ? <Loading /> :     <SearchList searchResults={searchResults} navigation={navigation}/>}
+            {isLoading ? <Loading /> : <SearchList searchResults={searchResults} navigation={navigation}/>}
             <Center>
-                <Heading px={10}>Please input Search Fields</Heading>
+                <Heading px={10}>Please input search fields</Heading>
             </Center>
         </Container>
     )

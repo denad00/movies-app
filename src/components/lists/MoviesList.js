@@ -15,6 +15,7 @@ const MoviesList = ({ navigation, movieResults }) => {
                     releaseDate={item.release_date}
                     overview={item.overview}
                     navigation={navigation}
+                    id={item.id}
                 />
             )}
         keyExtractor={item => item.id}

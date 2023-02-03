@@ -4,11 +4,11 @@ const SearchCard = props => {
     const {image, title, popularity, releaseDate, overview, navigation } = props
     return(
         <Box>
-            <HStack >
+            <HStack px={4} py={3}>
                 <Box>
-                    <Image source={{ uri: image}} alt={title} size="xl"/>
+                    <Image source={{ uri: image}} alt={title} size="xl" maxWidth='100%'/>
                 </Box>
-                <VStack >
+                <VStack px={3} width='60%'>
                     <Heading size='xs'>{title}</Heading>
                     <Text>Popularity: {popularity}</Text>
                     <Text>Release Date: {releaseDate}</Text>

@@ -18,8 +18,9 @@ const Movies = props => {
                     getMovies(movieValue)
                 }}
                 _selectedItem={{
-                    bg: "#009999",
-                    endIcon: <CheckIcon size={4} />
+                    bg: "teal.500",
+                    endIcon: <CheckIcon size={4} color='#fff' />,
+                    color: "#fff"
                 }}
             >
                 <Select.Item label="popular" value="popular"/>
