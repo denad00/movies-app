@@ -1,7 +1,8 @@
 import { Select, VStack, CheckIcon } from "native-base"
 import { useState } from "react"
 
-const TvShows = () => {
+const TvShows = props => {
+    const { getTvShows, onSelectChange } = props
     const [tvShowType, setTvShowType] = useState("")
 
     return (
@@ -9,8 +10,12 @@ const TvShows = () => {
             <Select 
                 selectedValue={tvShowType} 
                 minWidth={200} 
-                accessibilityLabel="Select Type of Filter for Movies"
-                onValueChange={tvShowValue => setTvShowType(tvShowValue)}
+                accessibilityLabel="Select Type of Filter for Tv Show"
+                onValueChange={tvShowValue => {
+                    onSelectChange(tvShowValue)
+                    setTvShowType(tvShowValue)
+                    getTvShows(tvShowValue)
+                }}
                 _selectedItem={{
                     bg: "#009999",
                     endIcon: <CheckIcon size={4} />,

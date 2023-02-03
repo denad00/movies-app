@@ -1,12 +1,6 @@
 import { BASE_URL, API_KEY } from '../config/api_config'
 
-// const getMovies =  async () => {
-//     const res = await fetch(`http://`)
-//       const data = res.json()
-//   console.log(data)
-//   }
-
-export const getMovies = async ( category) => {
+export const getMovies = async (category) => {
     const res = await fetch(`${BASE_URL}/movie/${category}?api_key=${API_KEY}`)
 
     const data = await res.json()

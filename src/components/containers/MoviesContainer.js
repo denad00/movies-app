@@ -1,6 +1,6 @@
-import { Text, View } from "native-base"
+import { View, Heading, Center } from "native-base"
 import Movies from "../forms/Movies"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getMovies } from '../services/api'
 import MoviesList from "../lists/MoviesList"
 
@@ -8,7 +8,18 @@ const MoviesContainer = () => {
     const [category, setCategory] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [movieResults, setMovieResults] = useState([])
-    const [searchType, setSearchType] = useState('movie')
+
+    // useEffect(() => {
+    //     getMovies(category).then(
+    //         movieResults => {
+    //             setMovieResults(movieResults)
+    //             setIsLoading(false)
+    //         },
+    //         error => {
+    //             alert('Error', `something went wrong ${error}`)
+    //         }
+    //     )
+    // }, [category])
 
     const fetchMovies = () => {
         setIsLoading(true)
@@ -34,9 +45,11 @@ const MoviesContainer = () => {
     <View>
         <Movies onSelectChange={handleSelectChange} getMovies={fetchMovies} />
         <MoviesList movieResults={movieResults}/>
-        <Text>
-            Movies!
-        </Text>
+        <Center>
+            <Heading size='md'>
+                Please select a category
+            </Heading>
+        </Center>
     </View>
     )
 }
