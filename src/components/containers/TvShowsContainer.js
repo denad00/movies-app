@@ -1,14 +1,18 @@
 import { View, Heading, Center } from "native-base"
 import TvShows from "../forms/TvShows"
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { getTvShows } from '../services/api'
 import TvShowsList from '../lists/TvShowsList'
 import Loading from '../layout/Loading'
 
-const TvShowsContainer = () => {
+const TvShowsContainer = ({ navigation }) => {
     const [category, setCategory] = useState(null)
     const [isLoading, setIsLoading] = useState(false)
     const [tvShowResults, setTvShowResults] = useState([])
+
+    useEffect(() => {
+        fetchShows()
+    }, [category])
 
     const fetchShows = () => {
         setIsLoading(true)
@@ -33,7 +37,7 @@ const TvShowsContainer = () => {
     return(
     <View>
         <TvShows onSelectChange={handleSelectChange} getTvShows={fetchShows}/>
-        {isLoading ? <Loading /> :         <TvShowsList tvShowResults={tvShowResults} />}
+        {isLoading ? <Loading /> : <TvShowsList tvShowResults={tvShowResults} navigation={navigation}/>}
     </View>
     )
 }

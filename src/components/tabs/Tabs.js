@@ -9,8 +9,8 @@ const Tabs = ({ navigation }) => {
     return(
         <Tab.Navigator>
             <Tab.Screen name="Movies" component={MoviesContainer} navigation={navigation}/>
-            <Tab.Screen name="Search Results" component={SearchContainer}/>
-            <Tab.Screen name="TV" component={TvShowsContainer}/>
+            <Tab.Screen name="Search Results" component={SearchContainer} navigation={navigation}/>
+            <Tab.Screen name="TV" component={TvShowsContainer} navigation={navigation}/>
         </Tab.Navigator>
     )
 }

@@ -1,15 +1,19 @@
 import { Center, Container, Heading, View } from "native-base"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Search from '../forms/Search'
 import { getSearch } from "../services/api"
 import SearchList from '../lists/SearchList'
 import Loading from "../layout/Loading"
 
-const SearchContainer = () => {
+const SearchContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false)
     const [searchResults, setSearchResults] = useState([])
     const [search, setSearch] = useState(null)
     const [category, setCategory] = useState(null)
+
+    useEffect(() => {
+        fetchSearch()
+    }, [category])
 
     const fetchSearch = () => {
         setIsLoading(true)
@@ -39,7 +43,7 @@ const SearchContainer = () => {
     return(
         <Container>
             <Search onInputChange={handleInputChange} onSelectChange={handleSelectChange} getSearch={fetchSearch} />
-            {isLoading ? <Loading /> :     <SearchList searchResults={searchResults}/>}
+            {isLoading ? <Loading /> :     <SearchList searchResults={searchResults} navigation={navigation}/>}
             <Center>
                 <Heading px={10}>Please input Search Fields</Heading>
             </Center>

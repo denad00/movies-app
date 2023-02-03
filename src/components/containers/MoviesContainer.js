@@ -10,17 +10,9 @@ const MoviesContainer = ({ navigation }) => {
     const [isLoading, setIsLoading] = useState(false)
     const [movieResults, setMovieResults] = useState([])
 
-    // useEffect(() => {
-    //     getMovies(category).then(
-    //         movieResults => {
-    //             setMovieResults(movieResults)
-    //             setIsLoading(false)
-    //         },
-    //         error => {
-    //             alert('Error', `something went wrong ${error}`)
-    //         }
-    //     )
-    // }, [category])
+    useEffect(() => {
+        fetchMovies()
+    }, [category])
 
     const fetchMovies = () => {
         setIsLoading(true)

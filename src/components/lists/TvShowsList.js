@@ -1,7 +1,7 @@
 import { FlatList } from "native-base"
 import TvShowCard from "../listItems/TvShowCard"
 
-const TvShowsList = ({ tvShowResults }) => {
+const TvShowsList = ({ navigation, tvShowResults }) => {
     const imageURL = "https://image.tmdb.org/t/p/w500"
 
     return(
@@ -13,6 +13,8 @@ const TvShowsList = ({ tvShowResults }) => {
                     title={item.name}
                     popularity={item.popularity}
                     releaseDate={item.release_date}
+                    overview={item.overview}
+                    navigation={navigation}
 
                 />
             )}

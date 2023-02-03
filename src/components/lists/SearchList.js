@@ -1,7 +1,7 @@
 import { FlatList } from "native-base"
 import SearchCard from "../listItems/SearchCard"
 
-const SearchList = ({ searchResults }) => {
+const SearchList = ({ navigation,searchResults }) => {
     const imageURL = "https://image.tmdb.org/t/p/w500"
 
     return(
@@ -13,6 +13,8 @@ const SearchList = ({ searchResults }) => {
                     title={item.title}
                     popularity={item.popularity}
                     releaseDate={item.release_date}
+                    overview={item.overview}
+                    navigation={navigation}
 
                 />
             )}
