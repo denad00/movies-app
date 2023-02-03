@@ -1,7 +1,8 @@
 import { Text, View } from "native-base"
 import Movies from "../forms/Movies"
 import { useState } from 'react'
-import { getInformation } from '../services/api'
+import { getMovies } from '../services/api'
+import MoviesList from "../lists/MoviesList"
 
 const MoviesContainer = () => {
     const [category, setCategory] = useState(null)
@@ -12,7 +13,7 @@ const MoviesContainer = () => {
     const fetchMovies = () => {
         setIsLoading(true)
 
-        getInformation(searchType, category).then(
+        getMovies(category).then(
             movieResults => {
                 setMovieResults(movieResults)
                 setIsLoading(false)
@@ -32,7 +33,7 @@ const MoviesContainer = () => {
     return(
     <View>
         <Movies onSelectChange={handleSelectChange} getMovies={fetchMovies} />
-
+        <MoviesList movieResults={movieResults}/>
         <Text>
             Movies!
         </Text>

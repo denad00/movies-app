@@ -14,7 +14,7 @@ const Movies = props => {
                 onValueChange={movieValue => {
                     onSelectChange(movieValue)
                     setMovieType(movieValue)
-                    getMovies('movie', movieValue)
+                    getMovies(movieValue)
                 }}
                 _selectedItem={{
                     bg: "#009999",
